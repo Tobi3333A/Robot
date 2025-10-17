@@ -1,50 +1,47 @@
 <!DOCTYPE html>
 
 <head>
-<style>
-  div {
-    height: 150px;
-    width: 300px;
-    margin: 0 auto;
-  }
-  .foot {
-    height: 40px;
-    width: 40px;
-    background-color: #ccc;
-    border-radius: 40px;
-    border: 15px solid #999;
-  }
-  .torso {
-   height: 0;
-   width: 140px;
-   border-top: 300px solid #bc6;
-   border-left: 75px solid transparent;
-   border-right: 75px solid transparent;
-   border-radius: 20px 20px 100px 100px;
-  }
-  .brain {
-   height: 150px;
-   width: 150px;
-   background: radial-gradient(ellipse, red  15%, red 100%), #cc5;
-   background: -webkit-radial-gradient(circle, white 15%, transparent 40%), #cc5;
-   background: -moz-radial-gradient(circle, white 15%, red 40%), #cc5;
-   background-size: 75px 150px;
-   border-radius: 60px 60px 10px 10px;
-   border-bottom: 40px solid #666;
-  }
-  .beep {
-   width: 5px;
-   height: 0px;
-   border: 5px solid transparent;
-   border-top: 10px solid #777;
-   border-bottom: 80px solid #888;
-  }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Robot Animation</title>
+  <link rel="stylesheet" href="Resources/styles.css">
+  <link href='https://fonts.googleapis.com/css?family=Poller+One' rel='stylesheet' type='text/css'>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 </head>
 
 <body>
+  <div class="robot">
   <div class="beep"></div>
   <div class="brain"></div>
-  <div class="torso"></div>
+  <div class="torso">
+    <div class="left">j</div>
+    <div class="right">j</div>
+  </div>
   <div class="foot"></div>
+</div>
+
+<button class="flash">Laser Eyes On/Off</button>
+<button class="color">Change Color!</button>
+
+
+<script>
+// When eyes button is clicked, toggle laser class on brain
+$(".flash").click(function() {
+  $(".brain").toggleClass('laser');
+});
+
+// When color button is clicked...
+$(".color").click(function() {
+  // assign each named color a random number 0-255
+  var red = Math.floor(Math.random() * 255);
+  var green = Math.floor(Math.random() * 255);
+  var blue = Math.floor(Math.random() * 255);
+  //
+  var randomRGBA = 'rgba('+red+','+green+','+blue+',1)';
+  
+  $('body').css('background', randomRGBA);
+  
+  // alert(randomRGBA);
+
+</script>
 </body>
