@@ -1,6 +1,7 @@
 .robot {
   position: relative;
   left: 500px;
+  margin: 0 auto;
 }
 
 .beep {
